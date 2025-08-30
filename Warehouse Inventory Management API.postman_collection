@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "warehouse-inventory-api",
-		"name": "Warehouse Inventory Management API",
+		"_postman_id": "b032865b-cfce-44c6-9d36-a45b4b358804",
+		"name": "Warehouse Inventory Management API Copy 3",
 		"description": "Complete API collection for managing inventory across multiple warehouses",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15105201"
 	},
 	"item": [
 		{
@@ -19,7 +20,6 @@
 									"if (pm.response.code === 200) {",
 									"    const response = pm.response.json();",
 									"    if (response.token) {",
-									"        pm.environment.set('auth_token', response.token);",
 									"        pm.collectionVariables.set('auth_token', response.token);",
 									"        console.log('Token saved to environment:', response.token);",
 									"    }",
@@ -57,35 +57,8 @@
 								"login"
 							]
 						}
-					}
-				},
-				{
-					"name": "Get User (Authenticated)",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{auth_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/user",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"user"
-							]
-						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Logout",
@@ -113,7 +86,8 @@
 								"logout"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		},
@@ -146,7 +120,8 @@
 								"warehouses"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Create Warehouse",
@@ -183,7 +158,8 @@
 								"warehouses"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Warehouse",
@@ -208,10 +184,12 @@
 							],
 							"path": [
 								"api",
-								"warehouses"
+								"warehouses",
+								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Update Warehouse",
@@ -245,10 +223,12 @@
 							],
 							"path": [
 								"api",
-								"warehouses"
+								"warehouses",
+								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Delete Warehouse",
@@ -273,10 +253,12 @@
 							],
 							"path": [
 								"api",
-								"warehouses"
+								"warehouses",
+								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Warehouse Inventory",
@@ -306,7 +288,8 @@
 								"inventory"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		},
@@ -376,7 +359,8 @@
 								}
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Create Inventory Item",
@@ -413,7 +397,8 @@
 								"inventory"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Inventory Item",
@@ -442,7 +427,8 @@
 								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Update Inventory Item",
@@ -480,7 +466,8 @@
 								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Delete Inventory Item",
@@ -509,63 +496,8 @@
 								"1"
 							]
 						}
-					}
-				},
-				{
-					"name": "Get Categories",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{auth_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/inventory-categories",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"inventory-categories"
-							]
-						}
-					}
-				},
-				{
-					"name": "Get Brands",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "Bearer {{auth_token}}",
-								"type": "text"
-							},
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{base_url}}/api/inventory-brands",
-							"host": [
-								"{{base_url}}"
-							],
-							"path": [
-								"api",
-								"inventory-brands"
-							]
-						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Low Stock Items",
@@ -593,7 +525,8 @@
 								"low-stock-items"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		},
@@ -643,7 +576,8 @@
 								}
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Create Stock Transfer",
@@ -680,7 +614,8 @@
 								"stock-transfers"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Stock Transfer",
@@ -705,10 +640,12 @@
 							],
 							"path": [
 								"api",
-								"stock-transfers"
+								"stock-transfers",
+								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Update Stock Transfer",
@@ -746,7 +683,8 @@
 								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Delete Stock Transfer",
@@ -775,7 +713,8 @@
 								"1"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Execute Stock Transfer",
@@ -805,7 +744,8 @@
 								"execute"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Cancel Stock Transfer",
@@ -835,7 +775,8 @@
 								"cancel"
 							]
 						}
-					}
+					},
+					"response": []
 				},
 				{
 					"name": "Get Transfer Statistics",
@@ -863,7 +804,8 @@
 								"stock-transfers-statistics"
 							]
 						}
-					}
+					},
+					"response": []
 				}
 			]
 		}
@@ -900,4 +842,4 @@
 			"type": "string"
 		}
 	]
-} 
+}

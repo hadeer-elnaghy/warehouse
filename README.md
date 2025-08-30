@@ -82,25 +82,6 @@ php artisan queue:work
 # Keep this running continuously
 php artisan schedule:run
 
-# Or add to your crontab for automatic execution
-* * * * * cd /path-to-your-project && php artisan schedule:run >> /dev/null 2>&1
-```
-
-### Option 3: Supervisor (Production)
-Create a supervisor configuration to automatically manage queue workers:
-
-```ini
-[program:laravel-worker]
-process_name=%(program_name)s_%(process_num)02d
-command=php /path-to-your-project/artisan queue:work --sleep=3 --tries=3
-autostart=true
-autorestart=true
-user=www-data
-numprocs=8
-redirect_stderr=true
-stdout_logfile=/path-to-your-project/storage/logs/worker.log
-```
-
 ## License
 
 This project is licensed under the MIT License.
