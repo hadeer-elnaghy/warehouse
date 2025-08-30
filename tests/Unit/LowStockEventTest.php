@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Queue;
@@ -48,7 +49,7 @@ class LowStockEventTest extends TestCase
         $this->stock->load('inventoryItem', 'warehouse');
     }
 
-    /** @test */
+    #[Test]
     public function it_dispatches_low_stock_detected_event()
     {
         Event::fake();
@@ -63,7 +64,7 @@ class LowStockEventTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function low_stock_detected_event_is_queued_and_handled_by_listener()
     {
         Queue::fake();

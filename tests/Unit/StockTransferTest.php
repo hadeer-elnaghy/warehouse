@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 use App\Models\StockTransfer;
 use App\Models\Stock;
@@ -33,7 +34,7 @@ class StockTransferTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_execute_stock_transfer_successfully()
     {
         $transfer = StockTransfer::create([
@@ -64,7 +65,7 @@ class StockTransferTest extends TestCase
         $this->assertEquals(50, $destinationStock->available_quantity);
     }
 
-    /** @test */
+    #[Test]
     public function it_prevents_over_transfer_of_stock()
     {
         $transfer = StockTransfer::create([
@@ -93,7 +94,7 @@ class StockTransferTest extends TestCase
         $this->assertNull($destinationStock);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_cancel_pending_transfer()
     {
         $transfer = StockTransfer::create([
@@ -111,7 +112,7 @@ class StockTransferTest extends TestCase
         $this->assertEquals(StockTransfer::STATUS_CANCELLED, $transfer->fresh()->status);
     }
 
-    /** @test */
+    #[Test]
     public function it_cannot_execute_completed_transfer()
     {
         $transfer = StockTransfer::create([
@@ -128,7 +129,7 @@ class StockTransferTest extends TestCase
         $this->assertFalse($result);
     }
 
-    /** @test */
+    #[Test]
     public function it_validates_transfer_can_be_executed()
     {
         $transfer = StockTransfer::create([

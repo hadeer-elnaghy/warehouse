@@ -27,7 +27,6 @@ A comprehensive RESTful API for managing inventory across multiple warehouses bu
 1. Clone the repository:
 ```bash
 git clone <repository-url> .
-cd warehouse.dev
 ```
 
 2. Install dependencies:
@@ -73,9 +72,9 @@ php artisan test
 The tests use a separate test database to avoid affecting your development data. You need to configure this properly:
 
 #### Option 1: Create Test Database (Recommended)
-```bash
-# Create the test database (replace 'your_project_test' with your preferred name)
-mysql -u root -e "CREATE DATABASE IF NOT EXISTS your_project_test;"
+Update your `phpunit.xml` file to use your created database:
+```xml
+<env name="DB_DATABASE" value="your_created_database_name"/>
 ```
 
 #### Option 2: Use Same Database for Testing

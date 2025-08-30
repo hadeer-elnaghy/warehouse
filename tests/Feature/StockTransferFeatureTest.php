@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -45,7 +46,7 @@ class StockTransferFeatureTest extends TestCase
         $this->bearerToken = $this->user->createToken('test-token')->plainTextToken;
     }
 
-    /** @test */
+    #[Test]
     public function it_can_create_stock_transfer()
     {
         $transferData = [
@@ -85,7 +86,7 @@ class StockTransferFeatureTest extends TestCase
         ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_validates_stock_availability_when_creating_transfer()
     {
         $transferData = [
@@ -105,7 +106,7 @@ class StockTransferFeatureTest extends TestCase
                 ->assertJsonValidationErrors(['quantity']);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_execute_stock_transfer()
     {
         $transfer = StockTransfer::create([
@@ -131,7 +132,7 @@ class StockTransferFeatureTest extends TestCase
         $this->assertEquals(StockTransfer::STATUS_COMPLETED, $transfer->fresh()->status);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_cancel_stock_transfer()
     {
         $transfer = StockTransfer::create([
@@ -157,7 +158,7 @@ class StockTransferFeatureTest extends TestCase
         $this->assertEquals(StockTransfer::STATUS_CANCELLED, $transfer->fresh()->status);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_list_stock_transfers()
     {
         StockTransfer::create([
@@ -192,7 +193,7 @@ class StockTransferFeatureTest extends TestCase
                 ]);
     }
 
-    /** @test */
+    #[Test]
     public function it_can_get_stock_transfer_statistics()
     {
         // Create some transfers
