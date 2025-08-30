@@ -68,6 +68,24 @@ Run the test suite:
 php artisan test
 ```
 
+### Database Configuration for Testing
+
+The tests use a separate test database to avoid affecting your development data. You need to configure this properly:
+
+#### Option 1: Create Test Database (Recommended)
+```bash
+# Create the test database (replace 'your_project_test' with your preferred name)
+mysql -u root -e "CREATE DATABASE IF NOT EXISTS your_project_test;"
+```
+
+#### Option 2: Use Same Database for Testing
+Update your `phpunit.xml` file to use your existing database:
+```xml
+<env name="DB_DATABASE" value="your_existing_database_name"/>
+```
+
+**Note**: If you get "Unknown database" error, either create the test database or update the `phpunit.xml` configuration to match your actual database name.
+
 ## Queue Management
 
 To keep the queue system running for processing background jobs and events:
@@ -81,7 +99,3 @@ php artisan queue:work
 ```bash
 # Keep this running continuously
 php artisan schedule:run
-
-## License
-
-This project is licensed under the MIT License.
